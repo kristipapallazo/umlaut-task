@@ -28,13 +28,14 @@ const TabContainer: FC<TabContainerProps> = ({ subModule, setSubModule }) => {
   };
 
   return (
-    <div>
+    <div style={{ flexShrink: 1 }}>
       <Tabs
         defaultActiveKey={subModule}
         size="middle"
         style={{ flexShrink: 1 }}
         items={items}
         onChange={onChange}
+        type="card"
       />
     </div>
   );

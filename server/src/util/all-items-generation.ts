@@ -1,24 +1,30 @@
 import { handleFetch } from ".";
-import { Name, Names, Result, Results } from "../types";
+import {
+  ConvertData,
+  GenerateQueryData,
+  GenerateVariationsData,
+  Name,
+  Names,
+  Result,
+  Results,
+} from "../types";
 
 const getAllInfo = async (name: Name): Promise<Result> => {
-  const umlautConversion: string | undefined = await handleFetch(
-    "/convert",
-    name
-  );
-  const variations: string[] | undefined = await handleFetch(
+  const umlautConvertion = await handleFetch<ConvertData>("/convert", name);
+  const variations = await handleFetch<GenerateVariationsData>(
     "/generate/variations",
     name
   );
-  const sqlQuery: string | undefined = await handleFetch(
+  const sqlQuery = await handleFetch<GenerateQueryData>(
     "/generate/sql-query",
     name
   );
-  // const umlautConversion: string = handleUmlautConvertion(name);
-  // const variations: string[] = generateVariations(name);
-  // const sqlQuery: string = generateSQLQuery(name);
 
-  const result: Result = { umlautConversion, variations, sqlQuery };
+  const result: Result = {
+    umlautConvertion: umlautConvertion?.converted,
+    variations: variations?.variations,
+    sqlQuery: sqlQuery?.query,
+  };
   return result;
 };
 
@@ -27,10 +33,17 @@ export const handleAllItemsGeneration = async (
 ): Promise<Results> => {
   const results: Results = {};
 
-  names.forEach(async (name) => {
+  for (const name of names) {
     if (name || name.length > 0) {
-      results[name] = await getAllInfo(name);
+      const result = await getAllInfo(name);
+      results[name] = result;
     }
-  });
+  }
+  // names.forEach(async (name) => {
+  //   if (name || name.length > 0) {
+  //     const result = await getAllInfo(name);
+  //     results[name] = result;
+  //   }
+  // });
   return results;
 };

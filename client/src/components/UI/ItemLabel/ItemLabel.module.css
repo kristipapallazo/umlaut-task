@@ -1,0 +1,13 @@
+.cont {
+  margin: 10px 0;
+}
+.cont.error {
+  color: red;
+}
+.label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.color {
+  color: orange;
+}

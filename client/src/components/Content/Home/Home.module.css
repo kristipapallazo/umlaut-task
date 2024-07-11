@@ -1,7 +1,37 @@
 .home {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .title {
   margin: 0 auto;
   text-align: center;
+}
+.inputCont {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 20px;
+}
+.title,
+.inputCont,
+.info {
+  flex-shrink: 1;
+}
+.btn {
+  background-color: orange;
+  border: orange;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: transparent;
+  border: 2px solid orange;
+  color: orange;
+}
+.info {
+  text-align: center;
+  font-style: italic;
+  color: rgb(209, 96, 114);
+  margin: 10px 0;
+  /* flex-shrink: 1; */
 }

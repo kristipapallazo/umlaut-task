@@ -1,18 +1,23 @@
 import { FC, ReactNode, useCallback } from "react";
 import { SubModule } from "../../../../types/types";
+import UmlautConvertion from "./UmlautConvertion/UmlautConvertion";
+
+import VariationsComp from "./Variations/Variations";
+import QueryGeneration from "./QueryGeneration/QueryGeneration";
 
 interface SubContainerProps {
   subModule: SubModule;
 }
+
 const SubContainer: FC<SubContainerProps> = ({ subModule }) => {
   const handleView = useCallback((): ReactNode => {
     switch (subModule) {
       case "umlaut-conversion":
-        return <div>umlaut convertion</div>;
+        return <UmlautConvertion />;
       case "variations":
-        return <div>vari</div>;
+        return <VariationsComp />;
       case "query-generation":
-        return <div>query</div>;
+        return <QueryGeneration />;
 
       default:
         alert(
@@ -24,7 +29,7 @@ const SubContainer: FC<SubContainerProps> = ({ subModule }) => {
     }
   }, [subModule]);
 
-  return <div>{handleView()}</div>;
+  return <>{handleView()}</>;
 };
 
 export default SubContainer;

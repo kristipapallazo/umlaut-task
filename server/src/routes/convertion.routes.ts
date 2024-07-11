@@ -5,8 +5,10 @@ const convRoutes = Router();
 
 convRoutes.post("/", (req: Request, res: Response) => {
   const name = req.body?.name;
-  if (!name || name === "")
+  if (!name || name === "") {
     res.json({ error: true, message: "Error: Name does not exist or empty!" });
+    return;
+  }
   const converted = handleUmlautConvertion(name);
   res.json({ data: { converted } });
 });

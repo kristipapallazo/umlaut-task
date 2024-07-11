@@ -21,3 +21,16 @@
 #root {
   height: 100vh;
 }
+
+.label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: square;
+  margin-left: 20px;
+  color: orange;
+  flex: 1;
+  overflow: auto;
+}

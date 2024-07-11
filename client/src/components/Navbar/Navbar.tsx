@@ -31,7 +31,7 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ module, setModule }) => {
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
+    // console.log("click ", e);
     const val = e.key as Module;
     setModule(val);
   };

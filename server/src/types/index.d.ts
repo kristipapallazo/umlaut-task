@@ -17,8 +17,18 @@ type Name = string;
 type Names = Name[];
 type Variations = Name[];
 
+interface ServerResp<D = any> {
+  error?: boolean;
+  message?: string;
+  data?: D;
+}
+
+type ConvertData = { converted: string };
+type GenerateVariationsData = { variations: Variations };
+type GenerateQueryData = { query: string };
+
 type Result = {
-  umlautConversion?: Name;
+  umlautConvertion?: Name;
   variations?: Variations;
   sqlQuery?: string;
 };
