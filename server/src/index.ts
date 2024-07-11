@@ -23,6 +23,7 @@ if (!appConfig.origin) {
   process.exit(1);
 }
 const { port: PORT, origin } = appConfig;
+console.log("origin :>> ", origin);
 
 const port = PORT || 8080;
 

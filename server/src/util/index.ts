@@ -3,8 +3,13 @@ import { Name, ServerResp } from "../types";
 import config from "config";
 
 const baseUrl = config.get("app.baseUrl");
+const port = config.get("app.port");
 if (!baseUrl) {
   console.log(`Error: BaseUrl is missing => ${baseUrl}`);
+  process.exit(1);
+}
+if (!port) {
+  console.log(`Error: BaseUrl is missing => ${port}`);
   process.exit(1);
 }
 
@@ -12,7 +17,7 @@ export const handleFetch = async <D>(
   route: string,
   name: Name
 ): Promise<D | undefined> => {
-  const url = baseUrl + route;
+  const url = `${baseUrl}:${port}${route}`;
   try {
     const res = await fetch(url, {
       method: "POST",
