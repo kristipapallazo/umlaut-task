@@ -23,4 +23,4 @@ Check out on producton:
 5. Run the development server (only in root folder). It will start servers concurrently
    $ npm run dev
 
-6.
+6. Voila, here you are
