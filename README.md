@@ -5,8 +5,6 @@ This project is for the Full-stack position vacancy. Fulfil all the requirement 
 This is a full-stack app build with: Node.js, Express.js, React, Antd, React icons, TypeScript etc
 Furthermore, it is separed in two big folders: server(for backend) and client(for frontend)
 
-Check out on producton:
-
 - Start the development
 
 1. Go to git repo on "https://github.com/kristipapallazo/umlaut-task"
